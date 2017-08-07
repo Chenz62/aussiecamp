@@ -1,0 +1,88 @@
+<% include ../partials/header %>
+
+	<header id="headerParralax" data-type="background" data-speed="2">
+		<article>
+			<div class="container clearfix">
+				<div class="row flex">
+					<div class="col-md-3 col-md-offset-2">
+						<img src="/images/tent.png" alt="tent">
+					</div>
+					<div class="col-md-7 col-lg-5 col-lg-offset-right-2">
+						<h1>AussieCamp!</h1>
+						<% include ../partials/errors %>
+						<h3>A Collection of Australian Campsites</h3>
+						<p><a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#loginModal">Add a New Campground</a></p>
+						<p>
+							<form class="form-inline" action="/campgrounds" method="GET">
+								<div class="form-group">
+									<input class="form-control" type="text" name="search" placeholder="Search for campground!">
+									<input class="btn btn-success" type="submit" name="" value="Search!">
+								</div>
+							</form>
+						</p>
+					</div>
+				</div>
+			</div>
+		</article>
+	</header>
+
+	<section id="featured">
+		<div class="container">
+			<div class="row flex text-center">
+				<div class="col-md-12">
+					<% if(noMatch !== null) { %>
+						<h3><%= noMatch %></h3>
+						<% } %>
+				</div>
+				<% campgrounds.forEach(function(campground){ %>
+					<div class="col-xs-12 col-md-6 col-lg-4">
+						<div class="thumbnail">
+							<div class="image" style="background-image: url(<%= campground.image %>)">
+								<h4><%= campground.name %></h4>
+								<h5>$ <%= campground.cost %>/night</h5>
+							</div>
+							<div class="caption">
+								<% if (campground.description.length > 150){ %>
+									<p><%- campground.description.substring(0, 150) %>...</p>
+								<% } else { %>
+									<p><%- campground.description %></p>
+								<% } %>
+							</div>
+							<p>
+								<a href="/campgrounds/<%= campground._id %>" class="btn btn-lg btn-info btn-block">Read More... <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
+							</p>
+						</div>
+					</div>
+				<% }) %>
+			</div>
+		</div>
+	</section>
+	<footer id="footerParralax" data-type="background" data-speed="2">
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-6 col-sm-offset-3">
+					<div class="container">
+						<div class="thumbnail">
+							<h1>Contact Us!</h1>
+							<form action="/forgot" method="POST">
+								<div class="form-group">
+									<label for="email">Email</label>
+									<input type="email" name="email" class="form-control autofocus">
+								</div>
+								<div class="form-group">
+									<label for="comments">Comments</label>
+									<textarea id="comments" name="comments" class="form-control" rows="10"></textarea>
+								</div>
+								<div class="form-group">
+									<p><a href="" class="btn btn-lg btn-block btn-success">Send Email...!</a></p>
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+<% include ../partials/modals %>
+<% include ../partials/footer %>

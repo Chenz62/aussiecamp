@@ -1,0 +1,90 @@
+body {
+	background-color: rgba(20, 100, 20, 0.7);
+}
+#landing-header {
+	position: relative;
+	z-index: 1;
+	padding-top: 20vh;
+	text-align: center;
+}
+#landing-header img {
+	-webkit-filter:	drop-shadow(2px 8px 12px rgb(50, 150, 50));
+	filter: drop-shadow(2px 8px 12px rgba(20, 100, 20, 0.8));
+}
+#landing-header h1 {
+	color: gold;
+	text-shadow: 1px 4px 3px rgb(50, 150, 50),
+	2px 8px 12px rgba(20, 100, 20, 0.8),
+	4px 16px 24px rgba(20, 100, 20, 0.3);
+	font-weight: 700;
+	font-size: 5em;
+	font-family: 'Kaushan Script', cursive;
+}
+.btn {
+	box-shadow: 2px 8px 12px rgba(20, 100, 20, 0.3);
+	font-weight: bold;
+}
+.slideshow {
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	list-style: none;
+}
+.slideshow li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	width: 100%;
+	height: 100%;
+	background-position: 50% 50%;
+	background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 0;
+	animation: imageAnimation 50s linear infinite;
+}
+.slideshow li:nth-child(1) {
+	background-image: url(https://parksaustralia.gov.au/booderee/images/banner-camping-cave-beach-3000.jpg);
+}
+.slideshow li:nth-child(2) {
+	background-image: url(https://s1.at.atcdn.net/wp-content/uploads/2014/03/camping5923.jpg);
+	animation-delay: 10s;
+}
+.slideshow li:nth-child(3) {
+	background-image: url(http://wildcamping.club/wp-content/uploads/2015/10/australia_camp.jpeg);
+	animation-delay: 20s;
+}
+.slideshow li:nth-child(4) {
+	background-image: url(http://cd.visitmelbourne.com/-/media/images/great-ocean-road/things-to-do/outdoor-activities/camping-great-ocean-walk_gor_u_1056024_1150x863.jpg);
+	animation-delay: 30s;
+}
+.slideshow li:nth-child(5) {
+	background-image: url(http://www.4-wheeling-in-western-australia.com/images/Camping-far-away-from-any-city-or-town.jpg);
+	animation-delay: 40s;
+}
+
+@keyframes imageAnimation {
+	0% {
+		opacity: 0;
+		animation-timing-function: ease-in;
+	}
+	10% {
+		opacity: 1;
+		animation-timing-function: ease-out;
+	}
+	20% {
+		opacity: 1
+	}
+	30% {
+		opacity: 0
+	}
+}
+/* Older browser support - .no-cssanimations class added by modernizr */
+.no-cssanimations .slideshow li {
+	opacity: 1;
+}

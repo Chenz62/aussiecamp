@@ -12,8 +12,7 @@ body {
 	width: 80%;
 }
 .alert {
-	margin: 50px auto 0 auto;
-	/*width: 30%;*/
+	margin: 20px auto 0 auto;
 	text-align: center;
 }
 .btn-success {
@@ -38,7 +37,7 @@ body {
 #headerParralax {
 	position: relative;
 	display: table;
-	/*min-height: 300px;*/
+	min-height: 300px;
 	width: 100%;
 	background: url('../images/camping.equipment.jpg') no-repeat;
 	background-position: top center;
@@ -59,19 +58,19 @@ body {
 	filter: drop-shadow(2px 8px 12px rgba(183, 186, 39, 0.8));
 }
 #headerParralax article h1 {
-	color: rgb(50, 150, 50);
-	text-shadow: 1px 4px 3px rgb(201, 217, 72),
-	2px 8px 12px rgba(183, 186, 39, 0.8),
-	4px 16px 24px rgba(93, 99, 20, 0.3);
 	font-weight: 700;
 	font-size: 5em;
-	font-family: 'Kaushan Script', cursive;
-}
-#headerParralax article h3 {
 	color: gold;
 	text-shadow: 1px 4px 3px rgb(50, 150, 50),
 	2px 8px 12px rgba(20, 100, 20, 0.8),
 	4px 16px 24px rgba(20, 100, 20, 0.3);
+	font-family: 'Kaushan Script', cursive;
+}
+#headerParralax article h3 {
+	color: rgb(50, 150, 50);
+	text-shadow: 1px 4px 3px rgb(201, 217, 72),
+	2px 8px 12px rgba(183, 186, 39, 0.8),
+	4px 16px 24px rgba(93, 99, 20, 0.3);
 }
 /*campgrounds*/
 #featured {
@@ -84,8 +83,6 @@ body {
 #featured .thumbnail {
 	padding: 0;
 	border: none;
-	/*border-radius: 10px;*/
-
 }
 #featured .thumbnail .image {
 	border-radius: 10px 10px 0 0;
@@ -104,7 +101,6 @@ body {
 }
 
 #featured h4, #featured h5 {
-	/*font-family: 'Kaushan Script', cursive;*/
 	margin: 0;
 	color: gold;
 	text-align: right;
@@ -115,25 +111,20 @@ body {
 }
 #featured .caption {
 	text-align: left;
-	/*margin-top: 20px;*/
 }
 
 /*footer parralax*/
 footer {
-	/*text-align: center;*/
 	padding-bottom: 0;
 	vertical-align: middle;
 }
 #footerParralax {
 	position: relative;
 	display: table;
-	/*min-height: 300px;*/
 	width: 100%;
 	background: url('../images/camping.equipment.jpg') no-repeat;
 	background-position: top center;
 	background-size: cover;
-	/*color: white;*/
-
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
 }
@@ -143,17 +134,8 @@ footer {
 	2px 8px 12px rgba(183, 186, 39, 0.8),
 	4px 16px 24px rgba(93, 99, 20, 0.3);
 	font-weight: 700;
-	/*font-size: 2em;*/
 	text-align: center;
 	font-family: 'Kaushan Script', cursive;
-}
-#footerParralax .thumbnail {
-	margin-top: 20px;
-}
-#footerParralax .thumbnail textarea {
-	resize: none;
-}
-#footerParralax .thumbnail form label {
 }
 #pagefooter {
 	text-align: center;
@@ -168,7 +150,7 @@ footer {
 }
 
 
-
+/*SHOW page*/
 .delete-form {
 	display: inline;
 }

@@ -6,19 +6,40 @@ var Campground = require(`../models/campground`);
 var async = require(`async`);
 var nodemailer = require(`nodemailer`);
 var crypto = require(`crypto`);
-// var $ = require('jquery');
-require('dotenv').config();
 
+require(`dotenv`).load();
+
+// SMTP Transporter
+var transporter = nodemailer.createTransport({
+	host: process.env.SMTP_SERVER,
+	port: process.env.SMTP_PORT,
+	secure: true,
+	auth: {
+		user: process.env.SMTP_USER,
+		pass: process.env.SMTP_PASS
+	}
+});
 
 // SHOW the landing page
 router.get(`/`, function (req, res) {
 	res.render(`landing`);
 });
 
-// SHOW - registration form
-router.get(`/register`, function (req, res) {
-	res.render(`register`, {
-		page: `register`
+// Contact Us - Logic
+router.post(`/email`, function (req, res) {
+	var mailOptions = {
+		from: req.body.email,
+		to: process.env.EMAIL_TO,
+		subject: `AussieCamp Contact Form`,
+		text: req.body.comments
+	};
+	transporter.sendMail(mailOptions, (error, info) => {
+		if (error) {
+			return console.log(error);
+			req.flash(`error`, `Failed! Sorry, your email wasn't sent.`);
+		}
+		req.flash(`success`, `Success! Your email has been sent.`);
+		res.redirect(`/campgrounds`);
 	});
 });
 
@@ -44,13 +65,6 @@ router.post(`/register`, function (req, res) {
 			req.flash(`success`, `Welcome to AussieCamp! ` + user.firstName + `!`);
 			res.redirect(`/campgrounds`);
 		});
-	});
-});
-
-// SHOW - login form
-router.get(`/login`, function (req, res) {
-	res.render(`login`, {
-		page: `login`
 	});
 });
 
@@ -102,28 +116,13 @@ router.post(`/forgot`, function (req, res, next) {
 			});
 		},
 		function (token, user, done) {
-			// var serverOptions = {
-			// 	host: `smtp.gmail.com`,
-			// 	port: 465,
-			// 	auth: {
-			// 		user: `04888chenz@gmail.com`,
-			// 		pass: `need2save$5K`
-			// 	}
-			// };
-			var smtpTransport = nodemailer.createTransport({
-				service: `Gmail`,
-				auth: {
-					user: process.env.SMTP_USER,
-					pass: process.env.SMTP_PASS
-				}
-			});
 			var mailOptions = {
 				to: user.email,
-				from: `04888chenz@gmail.com`,
+				from: process.env.SMTP_USER,
 				subject: `Password Reset for AussieCamp!`,
-				text: `You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n` + `Please click on the following link, or paste this into your browser to complete the process:\n\n\t` + `http://` + req.headers.host + `/reset/` + token + `\n\n` + `If you did not request this, please ignore this email and your password will remain unchanged.\n`
+				text: `You are receiving this because you have (or someone else has) requested the reset of the password for your account.\n\n` + `Please click on the following link, or paste this into your browser to complete the process:\n\n\t` + `http://` + req.headers.host + `/reset/` + token + `\n\n` + `If you did not request this, please ignore this email and your password will remain unchanged.\n\n` + `Happy Camping...!\n\n`
 			};
-			smtpTransport.sendMail(mailOptions, function (err) {
+			transporter.sendMail(mailOptions, function (err) {
 				if (err) {
 					console.log(err);
 				} else {
@@ -134,7 +133,7 @@ router.post(`/forgot`, function (req, res, next) {
 		}
 	], function (err) {
 		if (err) return next(err);
-		res.redirect(`/forgot`);
+		res.redirect(`/campgrounds`);
 	});
 });
 
@@ -188,20 +187,13 @@ router.post(`/reset/:token`, function (req, res) {
 			});
 		},
 		function (user, done) {
-			var smtpTransport = nodemailer.createTransport({
-				service: `Gmail`,
-				auth: {
-					user: process.env.SMTP_USER,
-					pass: process.env.SMTP_PASS
-				}
-			});
 			var mailOptions = {
 				to: user.email,
-				from: `04888chenz@gmail.com`,
+				from: `aussiecamp@porter-online.com`,
 				subject: `Your password has been changed`,
 				text: `Hello,\n\n` + `This is a confirmation that the password for your account ` + user.email + ` has just been changed.\n`
 			};
-			smtpTransport.sendMail(mailOptions, function (err) {
+			transporter.sendMail(mailOptions, function (err) {
 				req.flash(`success`, `Success! Your password has been changed.`);
 				done(err);
 			});

@@ -2,9 +2,13 @@ var express = require(`express`);
 var router = express.Router();
 var expressSanitizer = require(`express-sanitizer`);
 var Campground = require(`../models/campground`);
+var Comment = require("../models/comment");
 var middleware = require(`./middleware`);
 var geocoder = require(`geocoder`);
 
+function escapeRegex(text) {
+	return text.replace(/[-[\]{}()*+?.,\\^$!&\s]/g, `\\$&`);
+};
 
 // INDEX - show all camgrounds
 router.get(`/`, function (req, res) {
@@ -69,7 +73,6 @@ router.post(`/`, middleware.isLoggedIn, function (req, res) {
 			lng: lng
 		};
 		// create a new campground and save to the database
-		req.body.description = req.sanitize(req.body.description);
 		Campground.create(newCampground, function (err, newlyCreated) {
 			if (err) {
 				console.log(err);
@@ -151,9 +154,5 @@ router.delete(`/:id`, middleware.checkCampgroundOwnership, function (req, res) {
 		}
 	});
 });
-
-function escapeRegex(text) {
-	return text.replace(/[-[\]{}()*+?.,\\^$!&\s]/g, `\\$&`)
-};
 
 module.exports = router;

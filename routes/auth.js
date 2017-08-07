@@ -48,11 +48,11 @@ router.post(`/register`, function (req, res) {
 });
 
 // SHOW - login form
-// router.get(`/login`, function (req, res) {
-// 	res.render(`login`, {
-// 		page: `login`
-// 	});
-// });
+router.get(`/login`, function (req, res) {
+	res.render(`login`, {
+		page: `login`
+	});
+});
 
 // LOGIN - Logic
 router.post(`/login`, passport.authenticate(`local`, {

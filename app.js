@@ -17,7 +17,7 @@ var campgroundRoutes = require(`./routes/campgrounds`);
 var commentRoutes = require(`./routes/comments`);
 var indexRoutes = require(`./routes/auth`);
 
-require('dotenv').config();
+require('dotenv').load();
 
 // CONNECT to mongoose
 // replace the deprecated mongoose.Promise library
@@ -26,7 +26,7 @@ var bluebird = require('bluebird');
 mongoose.Promise = bluebird; // mongoose recommend bluebird as a promise library for MongoDB
 
 // connect to the database
-mongoose.connect(`${process.env.DB_SERVER_URL}`, {
+mongoose.connect(process.env.DB_SERVER_URL, {
 	promiseLibrary: require('bluebird'), // mongoose docs recommend this go here too
 	useMongoClient: true // add useMongoClient:true to fix the "open() =>v4.11.0" deprecation warning
 })
@@ -77,5 +77,5 @@ app.use(`/`, indexRoutes);
 
 // APP Listener //
 app.listen(process.env.PORT, process.env.IP, function () {
-	console.log(`The "YelpCamp" server has started! ` + process.env.PORT);
+	console.log(`The "YelpCamp" server has started!`);
 });

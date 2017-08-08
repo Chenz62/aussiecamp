@@ -42,8 +42,8 @@
 								<h5>$ <%= campground.cost %>/night</h5>
 							</div>
 							<div class="caption">
-								<% if (campground.description.length > 150){ %>
-									<p><%- campground.description.substring(0, 150) %>...</p>
+								<% if (campground.description.length > 200){ %>
+									<p><%- campground.description.substring(0, 200) %>...</p>
 								<% } else { %>
 									<p><%- campground.description %></p>
 								<% } %>

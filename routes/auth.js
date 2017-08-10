@@ -33,10 +33,10 @@ router.post(`/email`, function (req, res) {
 		subject: `AussieCamp Contact Form`,
 		text: req.body.comments
 	};
-	transporter.sendMail(mailOptions, (error, info) => {
+	transporter.sendMail(mailOptions, function (error) {
 		if (error) {
+			req.flash(`error`, `Failed Sorry! Your email wasn't sent.`);
 			return console.log(error);
-			req.flash(`error`, `Failed! Sorry, your email wasn't sent.`);
 		}
 		req.flash(`success`, `Success! Your email has been sent.`);
 		res.redirect(`/campgrounds`);

@@ -31,7 +31,7 @@ nvm install 6
 	mkdir data
 	</pre>
 	<pre>
-	echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod
+	echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest --httpinterface "$@"' > mongod
 	chmod a+x mongod
 	</pre>
 <h4>Run MongoDB Daemon</h4>

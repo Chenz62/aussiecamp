@@ -76,10 +76,10 @@
 				scrollwheel: false
 			});
 			var contentString = `
-	      <strong><%= campground.name %><br />
-	      <%= campground.location %></strong>
-	      <p><%= campground.description %></p>
-	    `
+				<strong><%= campground.name %><br />
+				<%= campground.location %></strong>
+				<p><%= campground.description %></p>
+			`
 			var infowindow = new google.maps.InfoWindow({
 				content: contentString
 			});
@@ -92,6 +92,6 @@
 			});
 		}
 	</script>
-	<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1tfXg009CO_oaKRZzJlSOyBj9AQEzcp8&callback=initMap"></script>
+	<!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD1tfXg009CO_oaKRZzJlSOyBj9AQEzcp8&callback=initMap"></script> -->
 <% include ../partials/modals %>
 <% include ../partials/footer %>

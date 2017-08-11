@@ -61,7 +61,10 @@
 	<footer id="footerParralax" data-type="background" data-speed="2">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6 col-sm-offset-3">
+				<div class="col-sm-6">
+					<div id="map"></div>
+				</div>
+				<div class="col-sm-6">
 					<div class="container">
 						<div class="thumbnail">
 							<h1>Contact Us!</h1>
@@ -84,6 +87,22 @@
 			</div>
 		</div>
 	</footer>
+	<script>
+		function initMap() {
+			var lat = -26;
+			var lng = 135;
+			var center = {
+				lat: lat,
+				lng: lng
+			};
+			var map = new google.maps.Map(document.getElementById('map'), {
+				zoom: 4,
+				center: center,
+				scrollwheel: false
+			});
+
+		};
+	</script>
 
 <% include ../partials/modals %>
 <% include ../partials/footer %>

@@ -16,9 +16,10 @@ router.get(`/`, function (req, res) {
 	if (req.query.search) {
 		var regex = new RegExp(escapeRegex(req.query.search), `gi`);
 		// get all campgrounds from the database
+		// Blog.find({}).sort({_id: -1}).exec(function(err, blogs) { // ... });
 		Campground.find({
 			name: regex
-		}, function (err, allCampgrounds) {
+		}).sort({created: -1}).exec(function (err, allCampgrounds) {
 			if (err) {
 				console.log(err);
 			} else {
@@ -33,7 +34,7 @@ router.get(`/`, function (req, res) {
 		});
 	} else {
 		// get all campgrounds from the database
-		Campground.find({}, function (err, allCampgrounds) {
+		Campground.find({}).sort({created: -1}).exec(function (err, allCampgrounds) {
 			if (err) {
 				console.log(err);
 			} else {

@@ -1,7 +1,7 @@
 <% include ../partials/header %>
 	<div class="container">
 		<div class="row">
-			<h1 style="text-align: center;">Add New Comment to <%= campground.name %></h1>
+			<h2 style="text-align: center;">Add New Comment to <%= campground.name %></h2>
 			<form action="/campgrounds/<%= campground._id %>/comments" method="POST">
 				<div class="form-group">
 					<textarea name="comment[text]" rows="8" cols="80" class="form-control" placeholder="comment"></textarea>

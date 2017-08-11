@@ -1,6 +1,5 @@
 <% include ../partials/header %>
-
-	<header id="headerParralax" data-type="background" data-speed="2">
+	<header class="headerParralax" data-type="background" data-speed="2">
 		<article>
 			<div class="container clearfix">
 				<div class="row flex">
@@ -67,7 +66,7 @@
 				<div class="col-sm-6">
 					<div class="container">
 						<div class="thumbnail">
-							<h1>Contact Us!</h1>
+							<h2>Contact Us!</h2>
 							<form action="/email" method="POST">
 								<div class="form-group">
 									<label for="email">Email</label>
@@ -78,7 +77,7 @@
 									<textarea id="comments" name="comments" class="form-control" rows="10"></textarea>
 								</div>
 								<div class="form-group">
-									<input type="submit" class="btn btn-primary btn-block" value="Send Email... !">
+									<input type="submit" class="btn btn-success btn-lg btn-block" value="Send Email... !">
 								</div>
 							</form>
 						</div>
@@ -87,6 +86,9 @@
 			</div>
 		</div>
 	</footer>
+	<section id='pagefooter'>
+		<p>Copyright&copy; 2017 AussieCamp! Australia</p>
+	</section>
 	<script>
 		function initMap() {
 			var lat = -26;
@@ -97,6 +99,7 @@
 			};
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 4,
+				mapTypeId: google.maps.MapTypeId.HYBRID,
 				center: center,
 				scrollwheel: false
 			});

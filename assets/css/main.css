@@ -1,9 +1,6 @@
 /*page layout*/
-html {
-	outline-color: rgba(255, 0, 0, 0);
-}
 body {
-	margin: 30px auto;
+	margin: 30px auto 0 auto;
 	padding: 0;
 	font-family: Roboto;
 	background: url('../images/bg.jpg') repeat fixed;
@@ -37,7 +34,7 @@ body {
 
 /*campgrounds index*/
 /*header parralax*/
-#headerParralax {
+.headerParralax {
 	position: relative;
 	display: table;
 	min-height: 300px;
@@ -49,18 +46,18 @@ body {
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
 }
-#headerParralax article {
+.headerParralax article {
 	display: table-cell;
 	width: 100%;
 	vertical-align: middle;
 	text-align: center;
 }
-#headerParralax article img {
+.headerParralax article img {
 	padding-top: 50px;
 	-webkit-filter:	drop-shadow(2px 8px 12px rgb(201, 217, 72));
 	filter: drop-shadow(2px 8px 12px rgba(183, 186, 39, 0.8));
 }
-#headerParralax article h1 {
+h1 {
 	font-weight: 700;
 	font-size: 5em;
 	color: gold;
@@ -69,11 +66,11 @@ body {
 	4px 16px 24px rgba(20, 100, 20, 0.3);
 	font-family: 'Kaushan Script', cursive;
 }
-#headerParralax article h3 {
-	color: rgb(50, 150, 50);
-	text-shadow: 1px 4px 3px rgb(201, 217, 72),
-	2px 8px 12px rgba(183, 186, 39, 0.8),
-	4px 16px 24px rgba(93, 99, 20, 0.3);
+h3 {
+	color: gold;
+	text-shadow: 1px 4px 3px rgb(50, 150, 50),
+	2px 8px 12px rgba(20, 100, 20, 0.8),
+	4px 16px 24px rgba(20, 100, 20, 0.3);
 }
 /*campgrounds*/
 #featured {
@@ -142,10 +139,12 @@ body {
 	font-family: 'Kaushan Script', cursive;
 }
 #pagefooter {
-	color: red;
+	/*color: red;*/
+	/*background-color: red;*/
 	text-align: center;
+	padding-top: 10px;
 }
-/*modals*/
+/*MODALS*/
 .close {
 	color: red;
 	font-size: 3em;
@@ -153,17 +152,42 @@ body {
 .close:hover {
 	color: red;
 }
-
+h2 {
+	color: rgb(50, 150, 50);
+	text-shadow: 1px 4px 3px rgb(201, 217, 72),
+	2px 8px 12px rgba(183, 186, 39, 0.8),
+	4px 16px 24px rgba(93, 99, 20, 0.3);
+	font-weight: 700;
+	/*font-size: 2em;*/
+	text-align: center;
+	font-family: 'Kaushan Script', cursive;
+}
+/*new campground*/
+#newCampground {
+	max-width: 600px;
+}
 
 /*SHOW page*/
+#campgroundShowPage {
+	padding: 50px;
+	background-image: url('../images/camping.equipment.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-attachment: fixed;
+}
 .delete-form {
 	display: inline;
 }
 .date {
-	color: #B7D7F7;
+	color: #2E92F6;
 	letter-spacing: 0.1rem;
-	/*background-color: rgba(0, 0, 0, 0.8);*/
 	font-size: 0.8em;
+}
+#bannerContent .thumbnail {
+	padding: 0;
+	border: none;
+	border-radius: 10px;
 }
 
 #showBanner {
@@ -174,24 +198,29 @@ body {
 	background-repeat: no-repeat;
 }
 #bannerImage {
-	margin: 20px auto;
-	padding: 10px 40px;
-	/*width: 100%;*/
+	color: gold;
+	border-radius: 10px 10px 0 0;
+	width: 100%;
 	height: 500px;
-	border: 10px ridge white;
 	background-position: bottom center;
 	background-size: cover;
 	background-repeat: no-repeat;
-	color: white;
-	text-shadow: 2px 2px 2px black;
+}
+#bannerContent h4 {
+	color: rgb(50, 150, 50);
+	text-shadow: 1px 4px 3px rgb(201, 217, 72),
+	2px 8px 12px rgba(183, 186, 39, 0.8),
+	4px 16px 24px rgba(93, 99, 20, 0.3);
 }
 #bannerContent {
-	/*padding: 20px;*/
-	margin-bottom: 0;
-	padding-bottom: 0;
+	margin: 0;
+	padding: 0;
+	/*padding-top: 50px;*/
 	border-radius: 10px;
-	/*background-color: rgba(0, 0, 0, 0.7);*/
-	background-size: cover;
+}
+#bannerContent .caption {
+	margin: 0;
+	padding: 0 30px 10px 30px;
 }
 
 
@@ -211,19 +240,4 @@ body {
 }
 .list-group {
 	margin-top: 20px;
-}
-/*MODALS*/
-h2 {
-	color: rgb(50, 150, 50);
-	text-shadow: 1px 4px 3px rgb(201, 217, 72),
-	2px 8px 12px rgba(183, 186, 39, 0.8),
-	4px 16px 24px rgba(93, 99, 20, 0.3);
-	font-weight: 700;
-	/*font-size: 2em;*/
-	text-align: center;
-	font-family: 'Kaushan Script', cursive;
-}
-/*new campground*/
-#newCampground {
-	max-width: 600px;
 }

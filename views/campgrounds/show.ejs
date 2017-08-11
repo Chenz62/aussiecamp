@@ -1,67 +1,70 @@
 <% include ../partials/header %>
+	<div id="campgroundShowPage" class="">
 
-	<section id="showBanner" data-type="background" data-speed="5" style="background-image: url(<%= campground.image %>) 50% 0 repeat fixed">
-		<div id="bannerContent" class="container clearfix">
-			<!-- <div class="thumbnail"> -->
-				<div id="bannerImage" class="jumbotron" style="background-image: url(<%= campground.image %>)">
-					<h4 class="pull-right">$<%= campground.cost %> /night</h4>
-					<h1><%= campground.name %></h1>
-					<h4><em>Submitted by; </em><a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a></h4><span class="date pull-right"><%= moment(campground.created).fromNow() %></span>
-					<% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-						<a class="btn btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
-						<form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
-							<button class="btn btn-danger">Delete</button>
-						</form>
-					<% } %>
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-4">
+					<!-- <div class="list-group">
+						<li class="list-group-item active">Info 1</li>
+						<li class="list-group-item">Info 2</li>
+						<li class="list-group-item">Info 3</li>
+					</div> -->
+					<div id="map"></div>
 				</div>
-				<!-- <img src="<%= campground.image %>"> -->
-			<!-- </div> -->
-		</div>
-	</section>
+				<div class="col-md-8">
+					<% include ../partials/errors %>
+					<div id="bannerContent" class="clearfix">
+						<div class="thumbnail">
+							<div id="bannerImage" class="jumbotron" style="background-image: url(<%= campground.image %>)">
+								<h3 class="pull-right">$<%= campground.cost %> /night</h3>
+								<h1><%= campground.name %></h1>
 
-	<div class="container">
-		<div class="caption">
-			<p>
-				<%- campground.description %>
-			</p>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<!-- <div class="list-group">
-					<li class="list-group-item active">Info 1</li>
-					<li class="list-group-item">Info 2</li>
-					<li class="list-group-item">Info 3</li>
-				</div> -->
-				<div id="map"></div>
-			</div>
-			<div class="col-md-8">
-				<% include ../partials/errors %>
-				<div class="well">
-					<div class="text-right">
-						<p><a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment.</a></p>
-					</div>
-					<hr>
-					<% campground.comments.forEach(function(comment) { %>
-						<div class="row">
-							<div class="col-md-12">
-								<strong><%= comment.author.username %></strong>
-								<span class="date pull-right"><%= moment(comment.created).fromNow() %></span>
-								<p>
-									<%= comment.text %>
-								</p>
-								<% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
-									<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
-									<form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-										<button class="btn btn-xs btn-danger">Delete</button>
+								<% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+									<a class="btn btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
+									<form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+										<button class="btn btn-danger">Delete</button>
 									</form>
 								<% } %>
 							</div>
+							<div class="caption">
+
+								<h4><em><span class="date pull-right"><%= moment(campground.created).fromNow() %></span>Submitted by; <a href="/users/<%= campground.author.id %>"><%= campground.author.firstName %></a></em></h4>
+								<p><%- campground.description %></p>
+							</div>
 						</div>
-					<% }) %>
+					</div>
+					<div class="well">
+						<div class="text-right">
+							<p><a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment.</a></p>
+						</div>
+						<hr>
+						<% campground.comments.forEach(function(comment) { %>
+							<div class="row">
+								<div class="col-md-12">
+									<strong><%= comment.author.username %></strong>
+									<span class="date pull-right"><%= moment(comment.created).fromNow() %></span>
+									<p>
+										<%= comment.text %>
+									</p>
+									<% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+										<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
+										<form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+											<button class="btn btn-xs btn-danger">Delete</button>
+										</form>
+									<% } %>
+								</div>
+							</div>
+						<% }) %>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
+</div>
+	<section id='pagefooter'>
+		<br><p>Copyright&copy; 2017 AussieCamp! Australia</p>
+	</section>
 	<script>
 		function initMap() {
 			var lat = <%= campground.lat %>;
@@ -71,9 +74,10 @@
 				lng: lng
 			};
 			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 8,
-				center: center,
-				scrollwheel: false
+				zoom: 10,
+				mapTypeId: google.maps.MapTypeId.HYBRID,
+				center: center
+				// scrollwheel: false
 			});
 			var contentString = `
 				<strong><%= campground.name %><br />

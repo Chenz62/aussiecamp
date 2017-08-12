@@ -71,7 +71,7 @@ router.post(`/register`, function (req, res) {
 // LOGIN - Logic
 router.post(`/login`, passport.authenticate(`local`, {
 	successRedirect: `/campgrounds`,
-	failureRedirect: `/login`,
+	failureRedirect: `back`,
 	failureFlash: true,
 	successFlash: `Logged you in!`
 }), function (req, res) {});
@@ -86,7 +86,8 @@ router.get(`/logout`, function (req, res) {
 // USER - Reset Password
 // show Forgot Password form
 router.get(`/forgot`, function (req, res) {
-	res.render(`forgot`);
+	req.flash(`error`, `Error sending email!`)
+	res.redirect(`back`);
 });
 
 // Forgot Password - LOGIC

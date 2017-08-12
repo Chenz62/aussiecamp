@@ -1,5 +1,5 @@
 <% include ../partials/header %>
-	<header class="headerParralax" data-type="background" data-speed="2">
+	<header id="headerParralax" data-type="background" data-speed="2">
 		<article>
 			<div class="container clearfix">
 				<div class="row flex">
@@ -7,11 +7,13 @@
 						<img src="/images/tent.png" alt="tent">
 					</div>
 					<div class="col-md-7 col-lg-5 col-lg-offset-right-2">
-						<h1>AussieCamp!</h1>
+						<h1 class="gold script">AussieCamp!</h1>
 						<% include ../partials/errors %>
-						<h3>A Collection of World-Wide Campsites</h3>
-						<h2>for Australians</h2>
-						<p><a class="btn btn-success btn-lg" href="/campgrounds/new">Add a New Campground</a></p>
+						<h3 class="green">A Collection of World-Wide Campsites</h3>
+						<h2 class="green script">for Aussie Campers</h2><br>
+						<% if(currentUser){ %>
+							<p><a class="btn btn-success btn-lg" href="/campgrounds/new">Add a New Campground &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></a></p>
+						<% } %>
 						<p>
 							<form class="form-inline" action="/campgrounds" method="GET">
 								<div class="form-group">
@@ -38,8 +40,8 @@
 					<div class="col-xs-12 col-md-6 col-lg-4">
 						<div class="thumbnail">
 							<div class="image" style="background-image: url(<%= campground.image %>)">
-								<h4><%= campground.name %></h4>
-								<h5>$ <%= campground.cost %>/night</h5>
+								<h3 class="gold"><%= campground.name %></h3>
+								<h4 class="gold">$ <%= campground.cost %>/night</h4>
 							</div>
 							<div class="caption">
 								<% if (campground.description.length > 200){ %>
@@ -48,9 +50,9 @@
 									<p><%- campground.description %></p>
 								<% } %>
 							</div>
-							<p>
-								<a href="/campgrounds/<%= campground._id %>" class="btn btn-lg btn-info btn-block">Read More... <i class="fa fa-chevron-circle-right" aria-hidden="true"></i></a>
-							</p>
+							<!-- <p> -->
+								<a href="/campgrounds/<%= campground._id %>" class="btn btn-lg btn-info btn-block">Read More... <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+							<!-- </p> -->
 						</div>
 					</div>
 				<% }) %>
@@ -66,7 +68,7 @@
 				<div class="col-sm-6">
 					<div class="container">
 						<div class="thumbnail">
-							<h2>Contact Us!</h2>
+							<h2 class="green script">Contact Us!</h2>
 							<form action="/email" method="POST">
 								<div class="form-group">
 									<label for="email">Email</label>
@@ -91,8 +93,8 @@
 	</section>
 	<script>
 		function initMap() {
-			var lat = -26;
-			var lng = 135;
+			var lat = -29;
+			var lng = 134;
 			var center = {
 				lat: lat,
 				lng: lng

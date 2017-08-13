@@ -1,20 +1,9 @@
-<<<<<<< HEAD
 /***********************/
 /**** GLOBAL LAYOUT ****/
 /***********************/
 /***** page layout *****/
 body {
 	margin: 0 auto;
-=======
-/*page layout*/
-body {
-	margin: 30px auto 0 auto;
-	padding: 0;
-	font-family: Roboto;
-	background: url('../images/bg.jpg') repeat fixed;
-}
-.hd-padding {
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 	padding-top: 50px;
 	background: url('../images/bg.jpg') repeat fixed;
 	font-family: Roboto;
@@ -71,18 +60,11 @@ textarea {
 	padding: 0;
 	height: 27px;
 }
-<<<<<<< HEAD
 /***************************/
 /**** CAMPGROUNDS Index ****/
 /***************************/
 /***** header *****/
 #headerParralax {
-=======
-
-/*campgrounds index*/
-/*header parralax*/
-.headerParralax {
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 	position: relative;
 	display: table;
 	min-height: 350px;
@@ -98,35 +80,16 @@ textarea {
 	vertical-align: middle;
 	text-align: center;
 }
-<<<<<<< HEAD
 #headerParralax img {
-=======
-.headerParralax article img {
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 	padding-top: 50px;
 	-webkit-filter:	drop-shadow(2px 8px 12px rgb(201, 217, 72));
 	filter: drop-shadow(2px 8px 12px rgba(183, 186, 39, 0.8));
 }
-<<<<<<< HEAD
 #headerParralax h1 {
 	padding-bottom: 20px;
-=======
-h1 {
-	font-weight: 700;
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 	font-size: 5em;
 }
-<<<<<<< HEAD
 /***** campgrounds list *****/
-=======
-h3 {
-	color: gold;
-	text-shadow: 1px 4px 3px rgb(50, 150, 50),
-	2px 8px 12px rgba(20, 100, 20, 0.8),
-	4px 16px 24px rgba(20, 100, 20, 0.3);
-}
-/*campgrounds*/
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 #featured {
 	padding: 20px 0;
 }
@@ -173,19 +136,9 @@ h3 {
 #footerParralax h2 {
 	text-align: center;
 }
-<<<<<<< HEAD
 /******************/
 /***** MODALS *****/
 /******************/
-=======
-#pagefooter {
-	/*color: red;*/
-	/*background-color: red;*/
-	text-align: center;
-	padding-top: 10px;
-}
-/*MODALS*/
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 .close {
 	color: red;
 	font-size: 3em;
@@ -193,27 +146,13 @@ h3 {
 .close:hover {
 	color: red;
 }
-<<<<<<< HEAD
 /***************************/
 /***** CAMPGROUNDS New *****/
 /***************************/
-=======
-h2 {
-	color: rgb(50, 150, 50);
-	text-shadow: 1px 4px 3px rgb(201, 217, 72),
-	2px 8px 12px rgba(183, 186, 39, 0.8),
-	4px 16px 24px rgba(93, 99, 20, 0.3);
-	font-weight: 700;
-	/*font-size: 2em;*/
-	text-align: center;
-	font-family: 'Kaushan Script', cursive;
-}
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 /*new campground*/
 #newCampground {
 	max-width: 600px;
 }
-<<<<<<< HEAD
 /****************************/
 /***** CAMPGROUNDS Show *****/
 /****************************/
@@ -225,26 +164,11 @@ h2 {
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
-=======
-
-/*SHOW page*/
-#campgroundShowPage {
-	padding: 50px;
-	background-image: url('../images/camping.equipment.jpg');
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 }
 .delete-form {
 	display: inline;
 }
 .date {
-<<<<<<< HEAD
-=======
-	color: #2E92F6;
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 	letter-spacing: 0.1rem;
 	font-size: 0.8em;
 }
@@ -262,7 +186,6 @@ h2 {
 	background-repeat: no-repeat;
 }*/
 #bannerImage {
-<<<<<<< HEAD
 	padding-top: 30px;
 	width: 100%;
 	height: 500px;
@@ -271,28 +194,6 @@ h2 {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-=======
-	color: gold;
-	border-radius: 10px 10px 0 0;
-	width: 100%;
-	height: 500px;
-	background-position: bottom center;
-	background-size: cover;
-	background-repeat: no-repeat;
-}
-#bannerContent h4 {
-	color: rgb(50, 150, 50);
-	text-shadow: 1px 4px 3px rgb(201, 217, 72),
-	2px 8px 12px rgba(183, 186, 39, 0.8),
-	4px 16px 24px rgba(93, 99, 20, 0.3);
-}
-#bannerContent {
-	margin: 0;
-	padding: 0;
-	/*padding-top: 50px;*/
-	border-radius: 10px;
-}
->>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 #bannerContent .caption {
 	margin: 0;
 	padding: 0 30px 10px 30px;

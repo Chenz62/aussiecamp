@@ -1,3 +1,4 @@
 .env
 .gitignore
 unused/*
+node_modules/*

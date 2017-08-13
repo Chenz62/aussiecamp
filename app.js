@@ -11,6 +11,7 @@ var passportLocalMongoose = require(`passport-local-mongoose`);
 var Campground = require(`./models/campground`);
 var Comment = require(`./models/comment`);
 var User = require(`./models/user`);
+
 // var seedDB = require(`./seeds`);
 
 var campgroundRoutes = require(`./routes/campgrounds`);

@@ -1,20 +1,34 @@
 <% include ../partials/header %>
 	<div id="campgroundShowPage" class="">
+<<<<<<< HEAD
 		<div class="container">
 			<div class="row">
 				<div class="col-md-4">
 					<div id="map"></div>
+=======
+
+
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-4">
+>>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 					<!-- <div class="list-group">
 						<li class="list-group-item active">Info 1</li>
 						<li class="list-group-item">Info 2</li>
 						<li class="list-group-item">Info 3</li>
 					</div> -->
+<<<<<<< HEAD
+=======
+					<div id="map"></div>
+>>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 				</div>
 				<div class="col-md-8">
 					<% include ../partials/errors %>
 					<div id="bannerContent" class="clearfix">
 						<div class="thumbnail">
 							<div id="bannerImage" class="jumbotron" style="background-image: url(<%= campground.image %>)">
+<<<<<<< HEAD
 								<h4 class="pull-right gold">$<%= campground.cost %> /night</h4>
 								<h2 class="gold script"><%= campground.name %></h2>
 
@@ -22,10 +36,20 @@
 									<a class="btn btn-warning btn-sm" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
 									<form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
 										<button class="btn btn-sm btn-danger">Delete</button>
+=======
+								<h3 class="pull-right">$<%= campground.cost %> /night</h3>
+								<h1><%= campground.name %></h1>
+
+								<% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+									<a class="btn btn-warning" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
+									<form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
+										<button class="btn btn-danger">Delete</button>
+>>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 									</form>
 								<% } %>
 							</div>
 							<div class="caption">
+<<<<<<< HEAD
 								<h4 class="green"><em><span class="date pull-right"><%= moment(campground.created).fromNow() %></span>Submitted by; <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a></em></h4>
 								<p><%- campground.description %></p>
 							</div>
@@ -43,6 +67,27 @@
 										<a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>
 									<span class="date pull-right"><%= moment(comment.created).fromNow() %></span></em>
 									<p><%= comment.text %></p>
+=======
+
+								<h4><em><span class="date pull-right"><%= moment(campground.created).fromNow() %></span>Submitted by; <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a></em></h4>
+								<p><%- campground.description %></p>
+							</div>
+						</div>
+					</div>
+					<div class="well">
+						<div class="text-right">
+							<p><a class="btn btn-success" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment.</a></p>
+						</div>
+						<hr>
+						<% campground.comments.forEach(function(comment) { %>
+							<div class="row">
+								<div class="col-md-12">
+									<strong><%= comment.author.username %></strong>
+									<span class="date pull-right"><%= moment(comment.created).fromNow() %></span>
+									<p>
+										<%= comment.text %>
+									</p>
+>>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 									<% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 										<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
 										<form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
@@ -56,7 +101,11 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
 	</div>
+=======
+</div>
+>>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 	<section id='pagefooter'>
 		<br><p>Copyright&copy; 2017 AussieCamp! Australia</p>
 	</section>
@@ -72,6 +121,10 @@
 				zoom: 10,
 				mapTypeId: google.maps.MapTypeId.HYBRID,
 				center: center
+<<<<<<< HEAD
+=======
+				// scrollwheel: false
+>>>>>>> 5e5ee5462f2678cee0407a7a1f11143002ab2d54
 			});
 			var contentString = `
 				<strong><%= campground.name %><br />

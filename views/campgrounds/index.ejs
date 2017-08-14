@@ -44,8 +44,8 @@
 								<h4 class="gold">$ <%= campground.cost %>/night</h4>
 							</div>
 							<div class="caption">
-								<% if (campground.description.length > 200){ %>
-									<p><%- campground.description.substring(0, 200) %>...</p>
+								<% if (campground.description.length > 150){ %>
+									<p><%- campground.description.substring(0, 150) %>...</p>
 								<% } else { %>
 									<p><%- campground.description %></p>
 								<% } %>
@@ -88,24 +88,17 @@
 			</div>
 		</div>
 	</footer>
-	<section id='pagefooter'>
+	<section class='pagefooter'>
 		<p>Copyright&copy; 2017 AussieCamp! Australia</p>
 	</section>
 	<script>
 		function initMap() {
-			var lat = -29;
-			var lng = 134;
-			var center = {
-				lat: lat,
-				lng: lng
-			};
 			var map = new google.maps.Map(document.getElementById('map'), {
 				zoom: 4,
 				mapTypeId: google.maps.MapTypeId.HYBRID,
-				center: center,
+				center: {lat: -29, lng: 134},
 				scrollwheel: false
 			});
-
 		};
 	</script>
 

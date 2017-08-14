@@ -49,22 +49,22 @@ body {
 	animation: imageAnimation 50s linear infinite;
 }
 .slideshow li:nth-child(1) {
-	background-image: url(https://parksaustralia.gov.au/booderee/images/banner-camping-cave-beach-3000.jpg);
+	background-image: url(/images/au-image-1.jpg);
 }
 .slideshow li:nth-child(2) {
-	background-image: url(https://s1.at.atcdn.net/wp-content/uploads/2014/03/camping5923.jpg);
+	background-image: url(/images/au-image-2.jpg);
 	animation-delay: 10s;
 }
 .slideshow li:nth-child(3) {
-	background-image: url(http://wildcamping.club/wp-content/uploads/2015/10/australia_camp.jpeg);
+	background-image: url(/images/au-image-3.jpg);
 	animation-delay: 20s;
 }
 .slideshow li:nth-child(4) {
-	background-image: url(http://cd.visitmelbourne.com/-/media/images/great-ocean-road/things-to-do/outdoor-activities/camping-great-ocean-walk_gor_u_1056024_1150x863.jpg);
+	background-image: url(/images/au-image-4.jpg);
 	animation-delay: 30s;
 }
 .slideshow li:nth-child(5) {
-	background-image: url(http://www.4-wheeling-in-western-australia.com/images/Camping-far-away-from-any-city-or-town.jpg);
+	background-image: url(/images/au-image-5.jpg);
 	animation-delay: 40s;
 }
 

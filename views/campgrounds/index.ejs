@@ -1,106 +1,98 @@
 <% include ../partials/header %>
-	<header id="headerParralax" data-type="background" data-speed="2">
-		<article>
-			<div class="container clearfix">
-				<div class="row flex">
-					<div class="col-md-3 col-md-offset-2">
-						<img src="/images/tent.png" alt="tent">
-					</div>
-					<div class="col-md-7 col-lg-5 col-lg-offset-right-2">
-						<h1 class="gold script">AussieCamp!</h1>
-						<% include ../partials/errors %>
-						<h3 class="green">A Collection of World-Wide Campsites</h3>
-						<h2 class="green script">for Aussie Campers</h2><br>
-						<% if(currentUser){ %>
-							<p><a class="btn btn-success btn-lg" href="/campgrounds/new">Add a New Campground &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></a></p>
-						<% } %>
-						<p>
-							<form class="form-inline" action="/campgrounds" method="GET">
-								<div class="form-group">
-									<input class="form-control" type="text" name="search" placeholder="Search for campground!">
-									<input class="btn btn-success" type="submit" name="" value="Search!">
-								</div>
-							</form>
-						</p>
-					</div>
+<header id="headerParralax" data-type="background" data-speed="2">
+	<article>
+		<div class="container clearfix">
+			<div class="row flex">
+				<div class="col-md-3 col-md-offset-2">
+					<img src="/images/tent.png" alt="tent">
 				</div>
-			</div>
-		</article>
-	</header>
-
-	<section id="featured">
-		<div class="container">
-			<div class="row flex text-center">
-				<div class="col-md-12">
-					<% if(noMatch !== null) { %>
-						<h3><%= noMatch %></h3>
+				<div class="col-md-7 col-lg-5 col-lg-offset-right-2">
+					<h1 class="gold script">AussieCamp!</h1>
+					<% include ../partials/errors %>
+					<h3 class="green">A Collection of World-Wide Campsites</h3>
+					<h2 class="green script">for Aussie Campers</h2><br>
+					<% if(currentUser){ %>
+						<p><a class="btn btn-success btn-lg" href="/campgrounds/new">Add a New Campground &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></a></p>
 					<% } %>
-				</div>
-				<% campgrounds.forEach(function(campground){ %>
-					<div class="col-xs-12 col-md-6 col-lg-4">
-						<div class="thumbnail">
-							<div class="image" style="background-image: url(<%= campground.image %>)">
-								<h3 class="gold"><%= campground.name %></h3>
-								<h4 class="gold">$ <%= campground.cost %>/night</h4>
+					<p>
+						<form class="form-inline" action="/campgrounds" method="GET">
+							<div class="form-group">
+								<input class="form-control" type="text" name="search" placeholder="Search for campground!">
+								<input class="btn btn-success" type="submit" name="" value="Search!">
 							</div>
-							<div class="caption">
-								<% if (campground.description.length > 150){ %>
-									<p><%- campground.description.substring(0, 150) %>...</p>
-								<% } else { %>
-									<p><%- campground.description %></p>
-								<% } %>
-							</div>
-							<!-- <p> -->
-								<a href="/campgrounds/<%= campground._id %>" class="btn btn-lg btn-info btn-block">Read More... <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
-							<!-- </p> -->
-						</div>
-					</div>
-				<% }) %>
-			</div>
-		</div>
-	</section>
-	<footer id="footerParralax" data-type="background" data-speed="2">
-		<div class="container">
-			<div class="row">
-				<div class="col-sm-6">
-					<div id="map"></div>
-				</div>
-				<div class="col-sm-6">
-					<div class="container">
-						<div class="thumbnail">
-							<h2 class="green script">Contact Us!</h2>
-							<form action="/email" method="POST">
-								<div class="form-group">
-									<label for="email">Email</label>
-									<input type="email" name="email" class="form-control autofocus">
-								</div>
-								<div class="form-group">
-									<label for="comments">Comments</label>
-									<textarea id="comments" name="comments" class="form-control" rows="10"></textarea>
-								</div>
-								<div class="form-group">
-									<input type="submit" class="btn btn-success btn-lg btn-block" value="Send Email... !">
-								</div>
-							</form>
-						</div>
-					</div>
+						</form>
+					</p>
 				</div>
 			</div>
 		</div>
-	</footer>
-	<section class='pagefooter'>
-		<p>Copyright&copy; 2017 AussieCamp! Australia</p>
-	</section>
-	<script>
-		function initMap() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-				zoom: 4,
-				mapTypeId: google.maps.MapTypeId.HYBRID,
-				center: {lat: -29, lng: 134},
-				scrollwheel: false
-			});
-		};
-	</script>
-
-<% include ../partials/modals %>
+	</article>
+</header>
+<section id="featured">
+	<div class="container">
+		<div class="row flex text-center">
+			<div class="col-md-12">
+				<% if(noMatch !== null) { %>
+					<h3><%= noMatch %></h3>
+				<% } %>
+			</div>
+			<% campgrounds.forEach(function(campground){ %>
+				<div class="col-xs-12 col-md-6 col-lg-4">
+					<div class="thumbnail">
+						<div class="image" style="background-image: url(<%= campground.image %>)">
+							<h3 class="gold"><%= campground.name %></h3>
+							<h4 class="gold">$ <%= campground.cost %>/night</h4>
+						</div>
+						<div class="caption">
+							<% if (campground.description.length > 150){ %>
+								<p><%- campground.description.substring(0, 150) %>...</p>
+							<% } else { %>
+								<p><%- campground.description %></p>
+							<% } %>
+						</div>
+							<a href="/campgrounds/<%= campground._id %>" class="btn btn-lg btn-info btn-block">Read More... <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
+			<% }) %>
+		</div>
+	</div>
+</section>
+<footer id="footerParralax" data-type="background" data-speed="2">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">
+				<div id="map"></div>
+			</div>
+			<div class="col-sm-6">
+				<div class="container">
+					<div class="thumbnail">
+						<h2 class="green script">Contact Us!</h2>
+						<form action="/email" method="POST">
+							<div class="form-group">
+								<label for="email">Email</label>
+								<input type="email" name="email" class="form-control autofocus">
+							</div>
+							<div class="form-group">
+								<label for="comments">Comments</label>
+								<textarea id="comments" name="comments" class="form-control" rows="10"></textarea>
+							</div>
+							<div class="form-group">
+								<input type="submit" class="btn btn-success btn-lg btn-block" value="Send Email... !">
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<script>
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+			zoom: 4,
+			mapTypeId: google.maps.MapTypeId.HYBRID,
+			center: {lat: -29, lng: 134},
+			scrollwheel: false
+		});
+	};
+</script>
 <% include ../partials/footer %>

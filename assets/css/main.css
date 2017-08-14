@@ -5,7 +5,9 @@
 body {
 	margin: 0 auto;
 	padding-top: 50px;
-	background: url('../images/bg.jpg') repeat fixed;
+	background-image: url('../images/bg.jpg');
+	background-repeat: repeat;
+	background-attachment: fixed;
 	font-family: Roboto;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizelegibility;
@@ -16,23 +18,22 @@ body {
 textarea {
 	resize: none;
 }
-#pagefooter {
+.pagefooter {
+	margin: 0;
 	padding-top: 10px;
 	text-align: center;
 }
-/***** page styling *****/
+/***** element styling *****/
 .gold {
 	color: rgb(255, 215, 0);
 	text-shadow: 1px 2px 3px rgb(30, 90, 30),
 	1px 2px 12px rgba(30, 90, 30, 0.5);
-	/*0px 0px 24px rgba(30, 90, 30, 0.3);*/
 	font-weight: 700;
 }
 .green {
 	color: rgb(50, 150, 50);
 	text-shadow: 1px 2px 3px rgb(255, 215, 0),
 	1px 2px 12px rgba(255, 215, 0, 0.5);
-	/*0px 0px 24px rgba(255, 215, 0, 0.3);*/
 	font-weight: 700;
 }
 .script {
@@ -41,7 +42,6 @@ textarea {
 	text-rendering: optimizelegibility;
 }
 .alert {
-	/*margin: 20px auto 0 auto;*/
 	text-align: center;
 }
 .btn-success {
@@ -74,7 +74,7 @@ textarea {
 	background-size: cover;
 	background-repeat: no-repeat;
 }
-.headerParralax article {
+#headerParralax article {
 	display: table-cell;
 	width: 100%;
 	vertical-align: middle;
@@ -91,7 +91,7 @@ textarea {
 }
 /***** campgrounds list *****/
 #featured {
-	padding: 20px 0;
+	padding: 10px 0;
 }
 #featured .flex {
 	display: flex;
@@ -99,7 +99,7 @@ textarea {
 }
 #featured .thumbnail {
 	padding: 0;
-	margin: 0;
+	margin: 10px 0;
 	border: none;
 }
 #featured .thumbnail .image {
@@ -174,7 +174,7 @@ textarea {
 }
 #bannerContent .thumbnail {
 	padding: 0;
-	border: none;
+	/*border: none;*/
 	border-radius: 10px;
 }
 
@@ -206,6 +206,7 @@ textarea {
 #map {
 	width: 100%;
 	height: 460px;
+	border: 1px solid #F8F8F8;
 	border-radius: 10px;
 }
 /* User */

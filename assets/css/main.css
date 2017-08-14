@@ -158,12 +158,16 @@ textarea {
 /****************************/
 /*SHOW page*/
 #campgroundShowPage {
-	padding: 30px;
+	/*min-height: 100vh;*/
+	padding-top: 20px;
 	background-image: url('../images/camping.equipment.jpg');
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	margin: 0;
+}
+#campgroundShowPage .container {
 }
 .delete-form {
 	display: inline;
@@ -192,7 +196,7 @@ textarea {
 }
 .well {
 	padding: 10px 30px;
-	margin: 20px 0 0 0;
+	margin-bottom: 20px;
 }
 /* Google Maps */
 #map {
@@ -200,6 +204,7 @@ textarea {
 	height: 460px;
 	border: 1px solid #F8F8F8;
 	border-radius: 10px;
+	margin-bottom: 20px;
 }
 /* User */
 .user {

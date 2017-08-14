@@ -2,9 +2,6 @@
 <div id="campgroundShowPage" class="">
 	<div class="container">
 		<div class="row">
-			<div class="col-md-4">
-				<div id="map"></div>
-			</div>
 			<div class="col-md-8">
 				<% include ../partials/errors %>
 				<div id="bannerContent" class="clearfix">
@@ -26,16 +23,17 @@
 					</div>
 				</div>
 				<div class="well">
-						<% if(currentUser){ %>
-							<p><a class="btn btn-success pull-right" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment.</a></p>
-						<% } %>
-						<h3 class="green script">Comments</h3>
+					<% if(currentUser){ %>
+						<p><a class="btn btn-success pull-right" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment.</a></p>
+					<% } %>
+					<h3 class="green script">Comments</h3>
 					<% campground.comments.forEach(function(comment) { %>
 						<div class="row">
 							<div class="col-md-12">
 								<em class="green">Submitted by;
 									<a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>
-								<span class="date pull-right"><%= moment(comment.created).fromNow() %></span></em>
+									<span class="date pull-right"><%= moment(comment.created).fromNow() %></span>
+								</em>
 								<p><%= comment.text %></p>
 								<% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 									<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
@@ -46,6 +44,48 @@
 							</div>
 						</div>
 					<% }) %>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div id="map"></div>
+
+				<div class="panel-group" id="accordion">
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title green script">
+							<a style="text-decoration: none;" data-toggle="collapse" data-parent="#accordion" href="#collapse1">Location Details</a>
+							</h4>
+						</div>
+						<div id="collapse1" class="panel-collapse collapse in">
+							<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title green script">
+							<a style="text-decoration: none;" data-toggle="collapse" data-parent="#accordion" href="#collapse2">Contact Details</a>
+							</h4>
+						</div>
+						<div id="collapse2" class="panel-collapse collapse">
+							<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+						</div>
+					</div>
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h4 class="panel-title green script">
+							<a style="text-decoration: none;" data-toggle="collapse" data-parent="#accordion" href="#collapse3">Weather Conditions</a>
+							</h4>
+						</div>
+						<div id="collapse3" class="panel-collapse collapse">
+							<div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+							sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

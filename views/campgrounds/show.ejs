@@ -1,4 +1,7 @@
 <% include ../partials/header %>
+<link rel="stylesheet" href="/css/campground.css">
+
+<% include ../partials/navbar %>
 <div id="campgroundShowPage" class="">
 	<div class="container">
 		<div class="row">
@@ -24,18 +27,27 @@
 				</div>
 				<div class="well">
 					<% if(currentUser){ %>
-						<p><a class="btn btn-success pull-right" href="/campgrounds/<%= campground._id %>/comments/new">Add a new comment.</a></p>
+						<form action="/campgrounds/<%= campground._id %>/comments" method="POST">
+							<div class="form-group">
+								<button class="btn btn-success pull-right">Add Comment!</button>
+								<h3 class="green script">Comments</h3>
+							</div>
+							<div class="form-group">
+								<textarea name="comment[text]" rows="4" class="form-control" placeholder="comment"></textarea>
+							</div>
+						</form>
+					<% } else { %>
+						<h3 class="green script">Comments</h3>
 					<% } %>
-					<h3 class="green script">Comments</h3>
 					<% campground.comments.forEach(function(comment) { %>
 						<div class="row">
 							<div class="col-md-12">
 								<em class="green">Submitted by;
-									<a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a>
+									<a href="/users/<%= comment.author.id %>"><%= comment.author.username %></a>
 									<span class="date pull-right"><%= moment(comment.created).fromNow() %></span>
 								</em>
 								<p><%= comment.text %></p>
-								<% if(currentUser && comment.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+								<% if(currentUser && currentUser.isAdmin){ %>
 									<a class="btn btn-xs btn-warning" href="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>/edit">Edit</a>
 									<form class="delete-form" action="/campgrounds/<%= campground._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
 										<button class="btn btn-xs btn-danger">Delete</button>

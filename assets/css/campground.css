@@ -1,0 +1,48 @@
+/****************************/
+/***** CAMPGROUNDS Show *****/
+/****************************/
+/*SHOW page*/
+#campgroundShowPage {
+	padding-top: 20px;
+	background-image: url('../images/camping.equipment.jpg');
+	background-attachment: fixed;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0;
+}
+.delete-form {
+	display: inline;
+}
+.date {
+	letter-spacing: 0.1rem;
+	font-size: 0.8em;
+}
+#bannerContent .thumbnail {
+	padding: 0;
+	border-radius: 10px;
+}
+#bannerImage {
+	padding-top: 30px;
+	width: 100%;
+	height: 460px;
+	border-radius: 10px 10px 0 0;
+	background-position: bottom center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+#bannerContent .caption {
+	margin: 0;
+	padding: 0 30px 10px 30px;
+}
+.well {
+	padding: 10px 30px;
+	margin-bottom: 20px;
+}
+/********************************/
+/***** CAMPGROUNDS New/Edit *****/
+/********************************/
+/*new campground*/
+#newCampground {
+	max-width: 600px;
+}

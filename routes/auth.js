@@ -57,9 +57,9 @@ router.post(`/register`, function (req, res) {
 	}
 	User.register(newUser, req.body.password, function (err, user) {
 		if (err) {
-			return res.render(`register`, {
-				error: err.message
-			});
+			req.flash(`error`, `Sorry! We could not sign you up.`);
+			console.log(err);
+			return res.redirect(`campgrounds`);
 		}
 		passport.authenticate(`local`)(req, res, function () {
 			req.flash(`success`, `Welcome to AussieCamp! ` + user.firstName + `!`);
@@ -70,7 +70,7 @@ router.post(`/register`, function (req, res) {
 
 // LOGIN - Logic
 router.post(`/login`, passport.authenticate(`local`, {
-	successRedirect: `/campgrounds`,
+	successRedirect: `back`,
 	failureRedirect: `back`,
 	failureFlash: true,
 	successFlash: `Logged you in!`

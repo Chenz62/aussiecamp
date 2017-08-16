@@ -4,7 +4,7 @@
 /***** page layout *****/
 body {
 	margin: 0 auto;
-	padding: 50px 0;
+	padding-top: 50px;
 	background-image: url('../images/bg.jpg');
 	background-attachment: fixed;
 	background-repeat: repeat;
@@ -65,7 +65,7 @@ textarea {
 #map {
 	width: 100%;
 	height: 460px;
-	border: 1px solid #F8F8F8;
+	border: 1px solid #C9C9C9;
 	border-radius: 10px;
 	margin-bottom: 20px;
 }
@@ -95,7 +95,7 @@ textarea {
 	display: table;
 	min-height: 350px;
 	width: 100%;
-	background: url('../images/camping.equipment.jpg');
+	background: url('../images/camping.equipment.faded.jpg');
 	background-position: top center;
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -112,8 +112,13 @@ textarea {
 	filter: drop-shadow(2px 8px 12px rgba(183, 186, 39, 0.8));
 }
 #headerParralax h1 {
-	padding-bottom: 20px;
 	font-size: 5em;
+}
+#headerParralax h1,
+#headerParralax h2,
+#headerParralax h3 {
+	margin: 0;
+	padding: 0;
 }
 /***** campgrounds list *****/
 #featured {
@@ -154,7 +159,7 @@ textarea {
 	display: table;
 	padding-top: 20px;
 	width: 100%;
-	background: url('../images/camping.equipment.jpg');
+	background: url('../images/camping.equipment.faded.jpg');
 	background-repeat: no-repeat;
 	background-position: top center;
 	background-size: cover;

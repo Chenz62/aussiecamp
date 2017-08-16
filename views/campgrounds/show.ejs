@@ -11,14 +11,14 @@
 						<div id="bannerImage" class="jumbotron" style="background-image: url(<%= campground.image %>)">
 							<h4 class="pull-right gold">$<%= campground.cost %> /night</h4>
 							<h2 class="gold script"><%= campground.name %></h2>
+						</div>
+						<div class="caption">
 							<% if(currentUser && campground.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
 								<a class="btn btn-warning btn-sm" href="/campgrounds/<%= campground._id%>/edit">Edit</a>
 								<form class="delete-form" action="/campgrounds/<%= campground._id %>?_method=DELETE" method="POST">
 									<button class="btn btn-sm btn-danger">Delete</button>
 								</form>
 							<% } %>
-						</div>
-						<div class="caption">
 							<h4 class="green"><em><span class="date pull-right"><%= moment(campground.created).fromNow() %></span>Submitted by; <a href="/users/<%= campground.author.id %>"><%= campground.author.username %></a></em></h4>
 							<p><%- campground.description %></p>
 						</div>
@@ -116,7 +116,6 @@
 		var contentString = `
 			<strong><%= campground.name %><br />
 			<%= campground.location %></strong>
-			<p><%= campground.description %></p>
 		`;
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString

@@ -8,18 +8,20 @@
 					<img src="/images/tent.png" alt="tent">
 				</div>
 				<div class="col-md-7 col-lg-5 col-lg-offset-right-2">
-					<h1 class="gold script">AussieCamp!</h1>
+					<h1 class="green script">AussieCamp!</h1>
 					<% include ../partials/errors %>
-					<h3 class="green">A Collection of World-Wide Campsites</h3>
+					<h3 class="gold">A Collection of World-Wide Campsites</h3>
 					<h2 class="green script">for Aussie Campers</h2><br>
 					<% if(currentUser){ %>
 						<p><a class="btn btn-success btn-lg" href="/campgrounds/new">Add a New Campground &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></a></p>
+					<% } else { %>
+						<p><a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#registerModal">Sign Up Now! &nbsp;&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i></a></p>
 					<% } %>
 					<p>
 						<form class="form-inline" action="/campgrounds" method="GET">
 							<div class="form-group">
 								<input class="form-control" type="text" name="search" placeholder="Search for campground!">
-								<input class="btn btn-success" type="submit" name="" value="Search!">
+								<button class="btn btn-success" type="submit">Search! <i class="fa fa-search-plus" aria-hidden="true"></i></button>
 							</div>
 						</form>
 					</p>
@@ -31,9 +33,9 @@
 <section id="featured">
 	<div class="container">
 		<div class="row flex text-center">
-			<div class="col-md-12">
+			<div class="container">
 				<% if(noMatch !== null) { %>
-					<h3><%= noMatch %></h3>
+					<h1 class="green text-center"><%= noMatch %></h1>
 				<% } %>
 			</div>
 			<% campgrounds.forEach(function(campground){ %>

@@ -4,7 +4,7 @@
 /*SHOW page*/
 #campgroundShowPage {
 	padding-top: 20px;
-	background-image: url('../images/camping.equipment.jpg');
+	background-image: url('../images/camping.equipment.faded.jpg');
 	background-attachment: fixed;
 	background-position: center;
 	background-size: cover;
@@ -38,6 +38,9 @@
 .well {
 	padding: 10px 30px;
 	margin-bottom: 20px;
+}
+.panel-body {
+	height: 150px;
 }
 .panel-heading {
 	background-color: #F5F5F5;

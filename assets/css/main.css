@@ -108,8 +108,8 @@ textarea {
 }
 #headerParralax img {
 	padding-top: 50px;
-	-webkit-filter:	drop-shadow(2px 8px 12px rgb(201, 217, 72));
-	filter: drop-shadow(2px 8px 12px rgba(183, 186, 39, 0.8));
+	-webkit-filter:	drop-shadow(2px 8px 12px rgb(30, 90, 30));
+	filter: drop-shadow(2px 8px 12px rgba(30, 90, 30, 0.8));
 }
 #headerParralax h1 {
 	font-size: 5em;

@@ -15,13 +15,13 @@
 					<% if(currentUser){ %>
 						<p><a class="btn btn-success btn-lg" href="/campgrounds/new">Add a New Campground &nbsp;&nbsp;<i class="fa fa-plus" aria-hidden="true"></i></a></p>
 					<% } else { %>
-						<p><a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#registerModal">Sign Up Now! &nbsp;&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i></a></p>
+						<p><a class="btn btn-success btn-lg" href="#" data-toggle="modal" data-target="#registerModal">Sign Up Now &nbsp;&nbsp;<i class="fa fa-user-plus" aria-hidden="true"></i></a></p>
 					<% } %>
 					<p>
 						<form class="form-inline" action="/campgrounds" method="GET">
 							<div class="form-group">
 								<input class="form-control" type="text" name="search" placeholder="Search for campground!">
-								<button class="btn btn-success" type="submit">Search! <i class="fa fa-search-plus" aria-hidden="true"></i></button>
+								<button class="btn btn-success" type="submit">Search <i class="fa fa-search-plus" aria-hidden="true"></i></button>
 							</div>
 						</form>
 					</p>
@@ -52,7 +52,7 @@
 								<p><%- campground.description %></p>
 							<% } %>
 						</div>
-							<a href="/campgrounds/<%= campground._id %>" class="btn btn-lg btn-info btn-block">Read More... <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+							<a href="/campgrounds/<%= campground._id %>" class="btn btn-info btn-block">Read more... <i class="fa fa-chevron-right" aria-hidden="true"></i></a>
 					</div>
 				</div>
 			<% }) %>
@@ -68,7 +68,7 @@
 			<div class="col-sm-6">
 				<div class="container">
 					<div class="thumbnail">
-						<h2 class="green script">Contact Us!</h2>
+						<h2 class="green script">Contact Us &nbsp;&nbsp;<i class="fa fa-envelope" aria-hidden="true"></i></h2>
 						<form action="/email" method="POST">
 							<div class="form-group">
 								<label for="email">Email</label>
@@ -79,7 +79,7 @@
 								<textarea id="comments" name="comments" class="form-control" rows="10"></textarea>
 							</div>
 							<div class="form-group">
-								<input type="submit" class="btn btn-success btn-lg btn-block" value="Send Email... !">
+								<button class="btn btn-success btn-lg btn-block">Send Email &nbsp;&nbsp;<i class="fa fa-envelope" aria-hidden="true"></i>
 							</div>
 						</form>
 					</div>

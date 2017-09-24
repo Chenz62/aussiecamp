@@ -1,4 +1,5 @@
 .env
+.jshintrc
 .gitignore
 unused
 node_modules

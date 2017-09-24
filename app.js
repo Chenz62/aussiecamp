@@ -69,9 +69,9 @@ app.use(function (req, res, next) {
 	next();
 });
 
+app.use(`/`, indexRoutes);
 app.use(`/campgrounds`, campgroundRoutes);
 app.use(`/campgrounds/:id/comments`, commentRoutes);
-app.use(`/`, indexRoutes);
 
 // SEED  the database with dummy-data
 // seedDB();
